@@ -7,6 +7,7 @@ glob      = require 'glob'
 File      = require 'vinyl'
 mkdirp    = require 'mkdirp'
 CleanCSS  = require 'clean-css'
+crypto    = require 'crypto'
 # RootsUtil  = require 'roots-util'
 
 module.exports = (opts) ->
@@ -15,6 +16,7 @@ module.exports = (opts) ->
     files: 'assets/css/**'
     out: false
     minify: false
+    hash: false
     opts: {}
 
   class CSSPipeline
@@ -86,6 +88,13 @@ module.exports = (opts) ->
 
         if opts.minify then @contents = (new CleanCSS(opts.opts)).minify(@contents)
 
+        if opts.hash
+          hash = crypto.createHash('md5').update(@contents, 'utf8')
+          res = opts.out.split('.')
+          res.splice(-1, 0, hash.digest('hex'))
+          opts.out = res.join('.')
+
         output_path = path.join(ctx.roots.config.output_path(), opts.out)
+
         node.call(mkdirp, path.dirname(output_path))
           .then(=> node.call(fs.writeFile, output_path, @contents))

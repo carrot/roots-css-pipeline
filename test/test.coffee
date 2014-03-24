@@ -83,3 +83,12 @@ describe 'concat-minify', ->
     p = path.join(@public, 'css/build.min.css')
     should.file_exist(p)
     should.contain(p, 'p{color:red}.wow{background:green}')
+
+describe 'hash', ->
+
+  before (done) -> compile_fixture.call(@, 'hash', done)
+
+  it 'css function should output a tag for the hashed build file', ->
+    p = path.join(@public, 'index.html')
+    filename = fs.readdirSync(path.join(@public, 'css'))[0]
+    should.contain(p, filename)

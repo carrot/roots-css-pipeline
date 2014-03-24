@@ -46,6 +46,9 @@ Minfifies the output. Default is `false`.
 ##### opts
 Options to be passed into the minifier. Only does anything useful when minify is true. Possible options can be seen [here](https://github.com/GoalSmashers/clean-css#how-to-use-clean-css-programmatically).
 
+##### hash
+Boolean, and only works when `out` is also defined. Hashes the file contents and appends to the filename. This is typically used for cache-busting. Always puts the hash before the final extension, for example `file.x.y.HASH.css`. The hash is a lengthy string of random numbers and letters, and the name change is automatically reflected by the `css` function in your views. Default is `false`.
+
 ### License & Contributing
 
 - Details on the license [can be found here](LICENSE.md)
