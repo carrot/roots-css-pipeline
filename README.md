@@ -1,7 +1,7 @@
 Roots CSS Pipeline
 ==================
 
-[![npm](https://badge.fury.io/js/css-pipeline.png)](http://badge.fury.io/js/css-pipeline) [![tests](https://travis-ci.org/carrot/css-pipeline.png?branch=master)](https://travis-ci.org/carrot/css-pipeline) [![dependencies](https://david-dm.org/carrot/css-pipeline.png?theme=shields.io)](https://david-dm.org/carrot/css-pipeline)
+[![npm](https://badge.fury.io/js/css-pipeline.png)](http://badge.fury.io/js/css-pipeline) [![tests](https://travis-ci.org/carrot/roots-css-pipeline.png?branch=master)](https://travis-ci.org/carrot/roots-css-pipeline) [![dependencies](https://david-dm.org/carrot/roots-css-pipeline.png?theme=shields.io)](https://david-dm.org/carrot/roots-css-pipeline)
 
 Roots css pipeline is an assep pipeline for css files which optionally concatenates, minifies, and/or hashes css files for production builds.
 
