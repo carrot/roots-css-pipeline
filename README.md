@@ -43,6 +43,9 @@ If provided, all input files will be concatenated to this single path. Default i
 ##### minify
 Minfifies the output. Default is `false`.
 
+##### opts
+Options to be passed into the minifier. Only does anything useful when minify is true. Possible options can be seen [here](https://github.com/GoalSmashers/clean-css#how-to-use-clean-css-programmatically).
+
 ### License & Contributing
 
 - Details on the license [can be found here](LICENSE.md)

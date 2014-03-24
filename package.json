@@ -17,9 +17,12 @@
   "dependencies": {
     "coffee-script": "1.7.x",
     "lodash": "2.x",
-    "when": "2.x",
+    "when": "3.x",
     "minimatch": "0.2.x",
-    "mkdirp": "0.3.x"
+    "mkdirp": "0.3.x",
+    "glob": "3.x",
+    "vinyl": "^0.2.3",
+    "clean-css": "^2.1.6"
   },
   "devDependencies": {
     "mocha": "*",

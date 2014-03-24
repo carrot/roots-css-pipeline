@@ -31,15 +31,55 @@ before (done) ->
   for d in glob.sync("#{_path}/*/package.json")
     p = path.dirname(d)
     if fs.existsSync(path.join(p, 'node_modules')) then continue
-    console.log "installing deps for #{d}"
+    console.log "installing deps for #{d.replace(_path,'').replace('/package.json','')}...".grey
     tasks.push nodefn.call(run, "cd #{p}; npm install")
-  W.all(tasks, -> done())
+  W.all(tasks).then(-> console.log(''); done())
 
 after ->
   rimraf.sync(public_dir) for public_dir in glob.sync('test/fixtures/**/public')
 
 # tests
 
-describe 'basic', ->
+describe 'development', ->
 
-  it 'works'
+  before (done) -> compile_fixture.call(@, 'development', done)
+
+  it 'css function should output a tag for each file', ->
+    p = path.join(@public, 'index.html')
+    should.contain(p, 'test.css')
+    should.contain(p, 'wow.css')
+
+  it 'files should have correct content', ->
+    p1 = path.join(@public, 'css/test.css')
+    p2 = path.join(@public, 'css/wow.css')
+    should.file_exist(p1)
+    should.contain(p1, 'color: #f00;')
+    should.file_exist(p2)
+    should.contain(p2, 'background: #008000;')
+
+describe 'concat', ->
+
+  before (done) -> compile_fixture.call(@, 'concat', done)
+
+  it 'css function should output a tag for the build file', ->
+    p = path.join(@public, 'index.html')
+    should.contain(p, 'build.css')
+
+  it 'build file should have correct content', ->
+    p = path.join(@public, 'css/build.css')
+    should.file_exist(p)
+    should.contain(p, 'color: #f00;')
+    should.contain(p, 'background: #008000;')
+
+describe 'concat-minify', ->
+
+  before (done) -> compile_fixture.call(@, 'concat-minify', done)
+
+  it 'css function should output a tag for the build file', ->
+    p = path.join(@public, 'index.html')
+    should.contain(p, 'build.min.css')
+
+  it 'build file should have correct content', ->
+    p = path.join(@public, 'css/build.min.css')
+    should.file_exist(p)
+    should.contain(p, 'p{color:red}.wow{background:green}')
