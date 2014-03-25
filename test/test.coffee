@@ -82,7 +82,8 @@ describe 'concat-minify', ->
   it 'build file should have correct content', ->
     p = path.join(@public, 'css/build.min.css')
     should.file_exist(p)
-    should.contain(p, 'p{color:red}.wow{background:green}')
+    should.contain(p, '.wow{background:green}')
+    should.contain(p, 'p{color:red}')
 
 describe 'hash', ->
 
