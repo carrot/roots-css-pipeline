@@ -42,7 +42,7 @@ module.exports = (opts) ->
           files = files.map((f) => path.sep + @util.output_path(f.relative, 'css').relative)
           paths = paths.concat(files)
         
-        paths.map((p) -> "<link rel='stylesheet' src='#{p}' />").join("\n")
+        paths.map((p) -> "<link rel='stylesheet' href='#{p}' />").join("\n")
 
     ###*
      * Minimatch runs against each path, quick and easy.
