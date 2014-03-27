@@ -18,7 +18,8 @@
     "lodash": "2.x",
     "minimatch": "0.2.x",
     "clean-css": "^2.1.6",
-    "roots-util": "0.0.2"
+    "roots-util": "0.0.2",
+    "js-yaml": "3.x"
   },
   "devDependencies": {
     "coffee-script": "1.7.x",

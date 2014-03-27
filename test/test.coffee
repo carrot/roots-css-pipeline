@@ -14,6 +14,9 @@ run = require('child_process').exec
 should.file_exist = (path) ->
   fs.existsSync(path).should.be.ok
 
+should.file_not_exist = (path) ->
+  fs.existsSync(path).should.not.be.ok
+
 should.have_content = (path) ->
   fs.readFileSync(path).length.should.be.above(1)
 
@@ -93,3 +96,44 @@ describe 'hash', ->
     p = path.join(@public, 'index.html')
     filename = fs.readdirSync(path.join(@public, 'css'))[0]
     should.contain(p, filename)
+
+describe 'manifest', ->
+
+  before (done) -> compile_fixture.call(@, 'manifest', done)
+
+  it 'css function should output a tag for each file', ->
+    p = path.join(@public, 'index.html')
+    should.contain(p, 'b-strizzle.css')
+    should.contain(p, 't-nizzle.css')
+    should.contain(p, 'test.css')
+    should.contain(p, 'wow.css')
+
+  it 'files should have correct content', ->
+    p1 = path.join(@public, 'css/test.css')
+    p2 = path.join(@public, 'css/wow.css')
+    p3 = path.join(@public, 'css/b-strizzy/b-strizzle.css')
+    p4 = path.join(@public, 'css/b-strizzy/t-nizzle.css')
+    should.file_exist(p1)
+    should.contain(p1, "color: #f00")
+    should.file_exist(p2)
+    should.contain(p2, 'background: #008000')
+    should.file_exist(p3)
+    should.contain(p3, "color: blue")
+    should.file_exist(p4)
+    should.contain(p4, 'content: "tizzle wizzle fizzle lizzle"')
+
+  it 'manifest file should be ignored from output', ->
+    should.file_not_exist(path.join(@public, 'css/manifest.yml'))
+
+describe 'concat-manifest', ->
+
+  before (done) -> compile_fixture.call(@, 'concat-manifest', done)
+
+  it 'css function should output a tag for the build file', ->
+    p = path.join(@public, 'index.html')
+    should.contain(p, 'build.css')
+
+  it 'build file should have correct content', ->
+    p = path.join(@public, 'css/build.css')
+    should.file_exist(p)
+    should.contain(p, '.bootstripe {\n  color: blue;\n}\nbody:after {\n  content: "tizzle wizzle fizzle lizzle"\n}\n.wow {\n  background: #008000;\n}\np {\n  color: #f00;\n}\n')
