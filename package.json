@@ -23,12 +23,13 @@
   },
   "devDependencies": {
     "coffee-script": "1.7.x",
-    "when": "3.x",
-    "mocha": "*",
-    "should": "*",
     "glob": "*",
+    "mocha": "*",
     "rimraf": "*",
-    "roots": "3.x"
+    "roots": "3.x",
+    "roots-util": "0.0.4",
+    "should": "*",
+    "when": "3.x"
   },
   "peerDependencies": {
     "roots": "3.x"
