@@ -1,7 +1,7 @@
 Roots CSS Pipeline
 ==================
 
-[![npm](https://badge.fury.io/js/css-pipeline.png)](http://badge.fury.io/js/css-pipeline) [![tests](https://travis-ci.org/carrot/roots-css-pipeline.png?branch=master)](https://travis-ci.org/carrot/roots-css-pipeline) [![dependencies](https://david-dm.org/carrot/roots-css-pipeline.png?theme=shields.io)](https://david-dm.org/carrot/roots-css-pipeline)
+[![npm](http://img.shields.io/npm/v/css-pipeline.svg?style=flat)](https://badge.fury.io/js/css-pipeline) [![tests](http://img.shields.io/travis/carrot/roots-css-pipeline/master.svg?style=flat)](https://travis-ci.org/carrot/roots-css-pipeline) [![coverage](http://img.shields.io/coveralls/carrot/roots-css-pipeline.svg?style=flat)](https://coveralls.io/r/carrot/roots-css-pipeline) [![dependencies](http://img.shields.io/gemnasium/carrot/roots-css-pipeline.svg?style=flat)](https://gemnasium.com/carrot/roots-css-pipeline)
 
 Roots css pipeline is an asset pipeline for css files which optionally concatenates and/or minifies css files for production builds.
 
