@@ -16,9 +16,9 @@
   "main": "lib",
   "dependencies": {
     "lodash": "2.x",
-    "minimatch": "0.2.x",
+    "minimatch": "0.3.x",
     "clean-css": "^2.1.6",
-    "roots-util": "0.0.2",
+    "roots-util": "0.0.4",
     "js-yaml": "3.x"
   },
   "devDependencies": {
@@ -27,7 +27,6 @@
     "mocha": "*",
     "rimraf": "*",
     "roots": "3.x",
-    "roots-util": "0.0.4",
     "should": "*",
     "when": "3.x"
   },
