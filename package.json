@@ -15,24 +15,24 @@
   },
   "main": "lib",
   "dependencies": {
+    "clean-css": "2.x",
+    "js-yaml": "3.x",
     "lodash": "2.x",
-    "minimatch": "0.3.x",
-    "clean-css": "^2.1.6",
-    "roots-util": "0.0.4",
-    "js-yaml": "3.x"
+    "minimatch": "0.4.x",
+    "roots-util": "0.0.4"
   },
   "devDependencies": {
     "coffee-script": "1.7.x",
-    "glob": "*",
-    "mocha": "*",
-    "rimraf": "*",
+    "coffeelint": "1.x",
+    "coveralls": "2.x",
+    "glob": "4.x",
+    "istanbul": "0.3.x",
+    "mocha": "1.x",
+    "mocha-lcov-reporter": "0.0.1",
+    "rimraf": "2.x",
     "roots": "3.x",
-    "should": "*",
-    "when": "3.x",
-    "coffeelint": "*",
-    "coveralls": "*",
-    "istanbul": "*",
-    "mocha-lcov-reporter": "*"
+    "should": "4.x",
+    "when": "3.x"
   },
   "peerDependencies": {
     "roots": "3.x"
