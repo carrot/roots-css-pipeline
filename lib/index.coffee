@@ -51,7 +51,7 @@ module.exports = (opts) ->
           for matcher in @files
             paths = paths.concat(get_output_paths.call(@, matcher))
 
-        paths.map((p) -> "<link rel='stylesheet' href='#{p}' />").join("\n")
+        paths.map((p) -> "<link rel='stylesheet' href='/#{p}' />").join("\n")
 
     ###*
      * Minimatch runs against each path, quick and easy.
