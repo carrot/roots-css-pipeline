@@ -19,7 +19,7 @@
     "js-yaml": "3.x",
     "lodash": "2.x",
     "minimatch": "1.x",
-    "roots-util": "0.0.4"
+    "roots-util": "0.1.x"
   },
   "devDependencies": {
     "coffee-script": "1.8.x",
@@ -30,12 +30,9 @@
     "mocha": "1.x",
     "mocha-lcov-reporter": "0.0.1",
     "rimraf": "2.x",
-    "roots": "3.x",
+    "roots": "3.0.0-rc.10",
     "should": "4.x",
     "when": "3.x"
-  },
-  "peerDependencies": {
-    "roots": "3.x"
   },
   "scripts": {
     "test": "npm run lint && mocha",
