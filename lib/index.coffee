@@ -42,16 +42,16 @@ module.exports = (opts) ->
       @files = @manifest or opts.files
 
       @roots.config.locals ?= {}
-      @roots.config.locals.css = =>
+      @roots.config.locals.css = (prefix = path.sep) =>
         paths = []
 
         if opts.out
-          paths.push(opts.out)
+          paths.push(path.sep + opts.out)
         else
           for matcher in @files
-            paths = paths.concat(get_output_paths.call(@, matcher))
+            paths = paths.concat(get_output_paths.call(@, matcher, prefix))
 
-        paths.map((p) -> "<link rel='stylesheet' href='/#{p}' />").join("\n")
+        paths.map((p) -> "<link rel='stylesheet' href='#{p}' />").join("\n")
 
     ###*
      * Minimatch runs against each path, quick and easy.
@@ -104,6 +104,7 @@ module.exports = (opts) ->
       res = yaml.safeLoad(fs.readFileSync(path.join(@roots.root, f), 'utf8'))
       res.map((m) -> path.join(path.dirname(f), m))
 
-    get_output_paths = (files) ->
+    get_output_paths = (files, prefix) ->
       @util.files(files).map (f) =>
-        path.sep + @util.output_path(f.relative, 'css').relative
+        filePath = @util.output_path(f.relative).relative
+        path.join(prefix, filePath.replace(path.extname(filePath), '.css'))

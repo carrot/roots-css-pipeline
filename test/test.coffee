@@ -26,8 +26,8 @@ describe 'development', ->
 
   it 'css function should output a tag for each file', ->
     p = path.join(@public, 'index.html')
-    h.file.contains(p, 'test.css').should.be.ok
-    h.file.contains(p, 'wow.css').should.be.ok
+    h.file.contains(p, '/css/test.css').should.be.ok
+    h.file.contains(p, '/css/wow.css').should.be.ok
 
   it 'files should have correct content', ->
     p1 = path.join(@public, 'css/test.css')
@@ -108,7 +108,7 @@ describe 'concat-manifest', ->
 
   it 'css function should output a tag for the build file', ->
     p = path.join(@public, 'index.html')
-    h.file.contains(p, 'build.css').should.be.ok
+    h.file.contains(p, '/css/build.css').should.be.ok
 
   it 'build file should have correct content', ->
     p = path.join(@public, 'css/build.css')
