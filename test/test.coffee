@@ -114,3 +114,11 @@ describe 'concat-manifest', ->
     p = path.join(@public, 'css/build.css')
     h.file.exists(p).should.be.ok
     h.file.contains(p, '.bootstripe {\n  color: blue;\n}\nbody:after {\n  content: "tizzle wizzle fizzle lizzle"\n}\n.wow {\n  background: #008000;\n}\np {\n  color: #f00;\n}\n').should.be.ok
+
+describe 'relative', ->
+
+  before (done) -> compile_fixture.call(@, 'relative', -> done())
+
+  it 'should prefix output path with whatever is passed to the css function', ->
+    p = path.join(@public, 'index.html')
+    h.file.contains(p, "href='css/build.css'").should.be.ok

@@ -42,11 +42,11 @@ module.exports = (opts) ->
       @files = @manifest or opts.files
 
       @roots.config.locals ?= {}
-      @roots.config.locals.css = (prefix = path.sep) =>
+      @roots.config.locals.css = (prefix = '/') =>
         paths = []
 
         if opts.out
-          paths.push(path.sep + opts.out)
+          paths.push("#{prefix}#{opts.out}")
         else
           for matcher in @files
             paths = paths.concat(get_output_paths.call(@, matcher, prefix))
