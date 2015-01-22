@@ -42,7 +42,7 @@ module.exports = (opts) ->
       @files = @manifest or opts.files
 
       @roots.config.locals ?= {}
-      @roots.config.locals.css = (prefix = '/') =>
+      @roots.config.locals.css = (prefix = '') =>
         paths = []
 
         if opts.out

@@ -106,9 +106,9 @@ You can name the manifest file whatever you'd like, the filename and extension d
 
 When you use this extension, it will expose a function called `css` to all your view files. When you call this function, the extension will drop in one or more link tags pointing to your scripts. If you specified an `out` path, it will build all your input files into that file and drop a single link tag pointing to it. If not, it will link to each of your input files.
 
-Note that the `css` function accepts one optional argument, which is a path to prefix any injected scripts with. It defaults to `/` so that scripts are loaded from an absolute path, as this prevents your scripts from breaking on nested pages, and we have found that it's the most common preference. If you want your scripts to load from a relative path (this can be necessary if your site is not hosted at the root), you can pass an empty string to the function (which means don't prefix with anything). If you are trying to load your css from another path, just pass in that path.
+Note that the `css` function accepts one optional argument, which is a path to prefix any injected scripts with. So for example if you wanted to have stylesheets load from the root of the site, you could pass in `/`. By default, it would be the relative path `css/master.css`, but calling with `/` would make it `/css/master.css`.
 
-Example of using the `css` function. This example uses [jade](http://jade-lang.com/) but this will also work with any other templating language.
+Here's an example of using the `css` function. This example uses [jade](http://jade-lang.com/) but this will also work with any other templating language.
 
 ```jade
 //- index.jade

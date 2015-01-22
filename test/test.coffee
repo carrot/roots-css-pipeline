@@ -26,8 +26,8 @@ describe 'development', ->
 
   it 'css function should output a tag for each file', ->
     p = path.join(@public, 'index.html')
-    h.file.contains(p, '/css/test.css').should.be.ok
-    h.file.contains(p, '/css/wow.css').should.be.ok
+    h.file.contains(p, 'css/test.css').should.be.ok
+    h.file.contains(p, 'css/wow.css').should.be.ok
 
   it 'files should have correct content', ->
     p1 = path.join(@public, 'css/test.css')
@@ -108,17 +108,17 @@ describe 'concat-manifest', ->
 
   it 'css function should output a tag for the build file', ->
     p = path.join(@public, 'index.html')
-    h.file.contains(p, '/css/build.css').should.be.ok
+    h.file.contains(p, 'css/build.css').should.be.ok
 
   it 'build file should have correct content', ->
     p = path.join(@public, 'css/build.css')
     h.file.exists(p).should.be.ok
     h.file.contains(p, '.bootstripe {\n  color: blue;\n}\nbody:after {\n  content: "tizzle wizzle fizzle lizzle"\n}\n.wow {\n  background: #008000;\n}\np {\n  color: #f00;\n}\n').should.be.ok
 
-describe 'relative', ->
+describe 'prefix', ->
 
-  before (done) -> compile_fixture.call(@, 'relative', -> done())
+  before (done) -> compile_fixture.call(@, 'prefix', -> done())
 
   it 'should prefix output path with whatever is passed to the css function', ->
     p = path.join(@public, 'index.html')
-    h.file.contains(p, "href='css/build.css'").should.be.ok
+    h.file.contains(p, "href='/css/build.css'").should.be.ok
