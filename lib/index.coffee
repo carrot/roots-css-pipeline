@@ -107,6 +107,6 @@ module.exports = (opts) ->
     get_output_paths = (files, prefix) ->
       @util.files(files).map (f) =>
         filePath = @util.output_path(f.relative).relative
-        file = path.join(prefix, filePath.replace(path.extname(filePath), '.css'))
-        file.replace(new RegExp('\\' + path.sep, 'g'), '/')
+        fN = path.join(prefix, filePath.replace(path.extname(filePath), '.css'))
+        fN.replace(new RegExp('\\' + path.sep, 'g'), '/')
         
