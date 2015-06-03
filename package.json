@@ -17,8 +17,8 @@
   "dependencies": {
     "clean-css": "2.x",
     "js-yaml": "3.x",
-    "lodash": "2.x",
-    "minimatch": "1.x",
+    "lodash": "3.9.x",
+    "minimatch": "2.x",
     "roots-util": "0.1.x"
   },
   "devDependencies": {
