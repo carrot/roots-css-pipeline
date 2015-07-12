@@ -1,6 +1,6 @@
 {
   "name": "css-pipeline",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "author": "Jeff Escalante <hello@jenius.me>",
   "description": "roots extension for handling css production builds",
   "license": "MIT",
