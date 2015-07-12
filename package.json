@@ -15,23 +15,23 @@
   },
   "main": "lib",
   "dependencies": {
-    "clean-css": "2.x",
+    "clean-css": "3.x",
     "js-yaml": "3.x",
-    "lodash": "3.9.x",
+    "lodash": "3.x",
     "minimatch": "2.x",
     "roots-util": "0.1.x"
   },
   "devDependencies": {
-    "coffee-script": "1.8.x",
+    "coffee-script": "1.9.x",
     "coffeelint": "1.x",
     "coveralls": "2.x",
-    "glob": "4.x",
+    "glob": "5.x",
     "istanbul": "0.3.x",
-    "mocha": "1.x",
-    "mocha-lcov-reporter": "0.0.1",
+    "mocha": "2.x",
+    "mocha-lcov-reporter": "0.0.2",
     "rimraf": "2.x",
-    "roots": "3.0.0-rc.10",
-    "should": "4.x",
+    "roots": "3.x",
+    "should": "7.x",
     "when": "3.x"
   },
   "scripts": {

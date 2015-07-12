@@ -86,7 +86,9 @@ module.exports = (opts) ->
             all_contents += content
 
         if opts.minify
-          all_contents = (new CleanCSS(opts.opts)).minify(all_contents)
+          all_contents = (new CleanCSS(opts.opts))
+                          .minify(all_contents)
+                          .toString()
 
         if opts.hash
           hash = crypto.createHash('md5').update(all_contents, 'utf8')
@@ -109,4 +111,3 @@ module.exports = (opts) ->
         filePath = @util.output_path(f.relative).relative
         fN = path.join(prefix, filePath.replace(path.extname(filePath), '.css'))
         fN.replace(new RegExp('\\' + path.sep, 'g'), '/')
-        
