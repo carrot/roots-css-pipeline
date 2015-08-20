@@ -88,7 +88,7 @@ module.exports = (opts) ->
         if opts.minify
           all_contents = (new CleanCSS(opts.opts))
                           .minify(all_contents)
-                          .toString()
+                          .styles
 
         if opts.hash
           hash = crypto.createHash('md5').update(all_contents, 'utf8')
