@@ -122,3 +122,16 @@ describe 'prefix', ->
   it 'should prefix output path with whatever is passed to the css function', ->
     p = path.join(@public, 'index.html')
     h.file.contains(p, "href='/css/build.css'").should.be.ok
+
+describe 'file-ext', ->
+
+  before (done) -> compile_fixture.call(@, 'file-ext', -> done())
+
+  it 'should remove all file extensions, and replace it with .css', ->
+    p1 = path.join(@public, 'css/main.css')
+    p2 = path.join(@public, 'css/wow.css')
+    p3 = path.join(@public, 'css/foo.css')
+
+    h.file.exists(p1).should.be.ok
+    h.file.exists(p2).should.be.ok
+    h.file.exists(p3).should.be.ok
