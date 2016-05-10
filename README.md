@@ -154,6 +154,13 @@ You might see output like this, with each file loaded on its own:
 <link rel='stylesheet' href='/css/baz.css' />
 ```
 
+If you require absolute paths because your project has a nested structure as created by [roots-dynamic-content](https://github.com/carrot/roots-dynamic-content/) you can pass `'/'` to the helper like so:
+
+```jade
+//- layout.jade extended by posts/hello_world.jade
+!= css('/')
+```
+
 ### Options
 
 ##### files
